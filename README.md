@@ -15,7 +15,7 @@ Problem: Place ''N'' queens on a board so no queen threatens another queen.
     _|Q|_|_|_|_|_|_
     _|_|_|_|Q|_|_|_
     _|_|Q|_|_|_|_|_
-
+    
 Solving the problem for a 8 queens:
 
 ```scala
@@ -132,7 +132,7 @@ Found 92 solutions
 
 ### Getting started
 
-Use [sbt](http://www.scala-sbt.org/) to interact with the build.
+Use [sbt] to interact with the build.
 
 ```
 $ sbt
@@ -227,3 +227,7 @@ java.lang.NumberFormatException: For input string: "2147483648"
 
 1. <https://en.wikipedia.org/wiki/Eight_queens_puzzle>
 2. <https://rosettacode.org/wiki/N-queens_problem#Scala>
+
+[Java 8]: http://docs.oracle.com/javase/8/docs/api/
+[sbt]: http://scala-sbt.org
+[Scala]: http://scala-lang.org
