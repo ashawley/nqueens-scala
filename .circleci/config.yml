@@ -1,0 +1,59 @@
+version: 2.1
+
+executors:
+  scala_jdk_executor:
+    docker:
+      - image: circleci/openjdk:8-jdk
+
+commands:
+  sbt_cmd:
+    description: "Build with sbt"
+    parameters:
+      scala_version:
+        type: string
+        default: 2.12.8
+      sbt_tasks:
+        type: string
+        default: update compile test:compile test doc package
+    steps:
+      - restore_cache:
+          keys:
+            - sbt-deps-v1-{{ checksum "build.sbt" }}
+            - sbt-deps-v1-
+      - run: sbt ++<< parameters.scala_version >> << parameters.sbt_tasks >>
+      - save_cache:
+          key: sbt-deps-v1-{{ checksum "build.sbt" }}
+          paths:
+            - "~/.ivy2/cache"
+            - "~/.sbt"
+            - "~/.m2"
+
+jobs:
+  scala_job:
+    executor: scala_jdk_executor
+    parameters:
+      version:
+        description: "Scala version"
+        default: 2.10.7
+        type: string
+    steps:
+      - checkout
+      - sbt_cmd:
+          scala_version: << parameters.version >>
+          sbt_tasks: update compile doc "run 8" "run 10"
+
+workflows:
+  build:
+    jobs:
+      - scala_job:
+          name: 2.10.7
+          version: 2.10.7
+      - scala_job:
+          name: 2.11.12
+          version: 2.11.12
+      - scala_job:
+          name: 2.12.8
+          version: 2.12.8
+      - scala_job:
+          name: 2.13.0-M5
+          version: 2.13.0-M5
