@@ -39,8 +39,8 @@ object Main {
   /**
     * Display a solution in the terminal screen.
     *
-    * @param  n Numer of queens
-    * @param  board An n-by-n board
+    * @param  n     Number of queens
+    * @param  board Queen positions on an ''n''-by-''n'' board
     * @return Nothing
     */
   def output(n: Int)(board: Seq[Int]): Unit = {
@@ -52,12 +52,13 @@ object Main {
   }
 
   /**
-    * Solve N-queens problem for N in first argument,
-    * else use 8.
+    * Solve N-queens problem for ''n'' in first argument,
+    * else use 8 for ''n''.
     *
     * @param  args Arguments
     * @return Nothing
-    * @throws java.lang.NumberFormatException If arg isn't an Int
+    * @throws java.lang.NumberFormatException
+    *         If arg isn't an integer
     * @throws java.lang.IllegalArgumentException 
     *         For n argument to [[NQueens.solve]]
     */

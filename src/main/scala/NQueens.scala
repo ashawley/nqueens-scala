@@ -68,7 +68,7 @@ object NQueens {
   }
   
   /**
-    * Solve N-queens for `n`.
+    * Solve N-queens for ''n''.
     *
     * Generates all permutations of the distinct range 0 to `n`, or ''n!''.
     *
@@ -79,7 +79,8 @@ object NQueens {
     *
     * @param  n Number of queens
     * @return Solutions
-    * @throws java.lang.IllegalArgumentException When n less than zero
+    * @throws java.lang.IllegalArgumentException
+    *         When n less than zero
     */
   def solve(n: Int): Iterator[Seq[Int]] = {
     if (n < 0) {
