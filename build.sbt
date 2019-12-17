@@ -4,12 +4,12 @@ name := "nqueens"
 
 version := "0.0-SNAPSHOT"
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.12.9"
 
 crossScalaVersions := Seq(
   "2.10.7",
   "2.11.12",
-  "2.12.8",
+  "2.12.9",
   "2.13.0"
 )
 
